@@ -1,0 +1,13 @@
+const random = @import("github.com/moglang/random")
+var first random.Random = random.create(42u64)
+var second random.Random = random.create(42u64)
+if (random.nextU64(first) != random.nextU64(second)) error("seeded PRNG is not reproducible")
+
+var bounded random.Random = random.create(7u64)
+var index i64 = 0
+while (index < 32) {
+    var value i64 = random.nextI64(bounded, -3, 5)
+    if (value < -3 || value > 5) error("bounded random value")
+    index = index + 1
+}
+if (random.nextI64(bounded, 9, 9) != 9) error("single-value random range")

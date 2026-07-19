@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.16)
+project(mog_random LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_library(mog_random MODULE src/package.cpp)
+target_include_directories(mog_random PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+set_target_properties(mog_random PROPERTIES PREFIX "" OUTPUT_NAME "package")
