@@ -5,3 +5,5 @@ fn secureSeed() u64
 fn create(seed u64) Random
 fn nextU64(random Random) u64
 fn nextI64(random Random, minimum i64, maximum i64) i64
+fn nextBool(random Random) bool
+fn nextF64(random Random) f64

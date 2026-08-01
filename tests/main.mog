@@ -11,3 +11,13 @@ while (index < 32) {
     index = index + 1
 }
 if (random.nextI64(bounded, 9, 9) != 9) error("single-value random range")
+
+var values random.Random = random.create(99u64)
+var sameValues random.Random = random.create(99u64)
+if (random.nextBool(values) != random.nextBool(sameValues)) error("seeded bool reproducibility")
+var fraction f64 = random.nextF64(values)
+if (fraction < 0.0 || fraction >= 1.0) error("fractional random value")
+if (fraction != random.nextF64(sameValues)) error("seeded float reproducibility")
+
+var secure random.Random = random.create(random.secureSeed())
+random.nextU64(secure)
