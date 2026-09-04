@@ -11,7 +11,7 @@
 #elif defined(__APPLE__)
 #include <stdlib.h>
 #else
-#error "moglang/random secureSeed supports only declared Linux and macOS targets"
+#error "kelvralang/random secureSeed supports only declared Linux and macOS targets"
 #endif
 
 namespace {
