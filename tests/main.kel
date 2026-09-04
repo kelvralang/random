@@ -1,4 +1,4 @@
-const random = @import("github.com/moglang/random")
+const random = @import("github.com/kelvralang/random")
 var first random.Random = random.create(42u64)
 var second random.Random = random.create(42u64)
 if (random.nextU64(first) != random.nextU64(second)) error("seeded PRNG is not reproducible")
